@@ -1,0 +1,16 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Main</title>
+</head>
+<body>
+    <h2>Изменить фамилию</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Сохранить изменения</button>
+    </form>
+    <a href="{% url 'last_name_list' %}">Назад</a>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Results</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Результаты поиска</h1>
+    <p style="text-align: center;">Результаты для имени: {{ first_name }}</p>
+   
+    <table>
+        <thead>
+            <tr>
+                <th>ID</a></th>
+                <th>Имя</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for result in results %}
+                <tr>
+                    <td>{{ result.id }}</td>
+                    <td>{{ result.value }}</td>
+                    
+                </tr>
+            {% endfor %}
+        </tbody>
+    
+    </table>
+</body>
+</html>

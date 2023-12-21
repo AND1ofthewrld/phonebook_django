@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Main List</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header style="margin-bottom: 10px; border-bottom: 1px solid black; display: flex; justify-content: space-between;">
+        <a href="{% url 'index' %}">Home</a>
+        <a href="{% url 'main_list' %}">Main List</a>
+    </header>
+
+    <h1 style="text-align: center;">Список данных</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th><a href="{% url 'first_name_list' %}">Имя</a></th>
+                <th><a href="{% url 'last_name_list' %}">Фамилия</a></th>
+                <th><a href="{% url 'patronymic_list' %}">Отчество</a></th>
+                <th><a href="{% url 'street_list' %}">Улица</a></th>
+                <th>Дом</th>
+                <th>Строение</th>
+                <th>Квартира</th>
+                <th>Телефон</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for main_instance in main_list %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ main_instance.first_name.value }}</td>
+                    <td>{{ main_instance.last_name.value }}</td>
+                    <td>{{ main_instance.patronymic.value }}</td>
+                    <td>{{ main_instance.street.value }}</td>
+                    <td>{{ main_instance.house }}</td>
+                    <td>{{ main_instance.building }}</td>
+                    <td>{{ main_instance.apartment }}</td>
+                    <td>{{ main_instance.phone }}</td>
+                
+                    <td> <a href="{% url 'edit_main' main_id=main_instance.id %}">Изменить данные</a></td>
+                    
+                </tr>
+            {% endfor %}
+        </tbody>
+        
+        <div style="display: flex; justify-content: space-between; border: 1px solid black;">
+            <a href="{% url 'search_by_phone' %}">Найти пользователя</a>
+            <a href="{% url 'add_data' %}"> Добавить данные о пользователе</a>
+            <a href="{% url 'delete_by_phone' %}"> Удалить данные о пользователе</a>
+            
+
+        </div>
+        
+    </table>
+
+</body>
+</html>

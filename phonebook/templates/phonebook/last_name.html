@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Main List</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <header style="margin-bottom: 10px; border-bottom: 1px solid black; display: flex; justify-content: space-between;">
+        <a href="{% url 'index' %}">Home</a>
+        <a href="{% url 'main_list' %}">Main List</a>
+    </header>
+
+    <h1 style="text-align: center;">Список фамилий</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID </th>
+                <th>Имя</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for names in last_name_list %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ names.value }}</td>
+                    <td><a href="{% url 'edit_lastname' main_id=names.id %}">Изменить данные</a></td>
+
+                </tr>
+            {% endfor %}
+        </tbody>
+        <div style="display: flex; justify-content: space-between;">
+            <p style="text-align: center;"><a href="{% url 'search_bylastname' %}">Найти пользователя по фамилии</a></p>
+            <p style="text-align: center;"><a href="{% url 'add_data_lastname' %}">Добавить пользователя</a></p>
+            <p style="text-align: center;"><a href="{% url 'delete_bylastname' %}">Удалить пользователя</a></p>
+
+        </div>
+        
+
+
+    </table>
+</body>
+</html>

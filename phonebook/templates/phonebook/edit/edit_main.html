@@ -1,0 +1,16 @@
+<!-- edit_main.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Main</title>
+</head>
+<body>
+    <h2>Edit Main</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Сохранить изменения</button>
+    </form>
+    <a href="{% url 'main_list' %}">Назад</a>
+</body>
+</html>

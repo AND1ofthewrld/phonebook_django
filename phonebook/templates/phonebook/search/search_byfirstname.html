@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search by First Name</title>
+</head>
+<body>
+    <h1 style="text-align: center;">Поиск по имени</h1>
+    <form action="{% url 'search_byfirstname' %}" method="get" style="display: flex; justify-content: center;">
+        <label for="first_name">Имя:</label>
+        <input type="text" name="first_name" id="first_name" required>
+        <button type="submit">Поиск</button>
+    </form>
+</body>
+</html>

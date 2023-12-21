@@ -1,0 +1,13 @@
+<html>
+<head>
+    <title>Delete by Surname</title>
+</head>
+<body>
+    <h2>Удалите данные о пользователе по отчеству</h2>
+    <form method="post" action="{% url 'delete_bypatronymic' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Delete">
+    </form>
+</body>
+</html>

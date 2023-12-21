@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Data</title>
+</head>
+<body>
+    <h1>Добавить данные о фамилии</h1>
+    <form method="post" action="{% url 'add_data_lastname' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" value="add">Сохранить</button>
+    </form>
+</body>
+</html>

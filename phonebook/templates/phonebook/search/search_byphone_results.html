@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Results</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+
+    </style>
+</head>
+<body>
+    <header style="margin-bottom: 10px; border-bottom: 1px solid black; display: flex; justify-content: space-between;">
+        <a href="{% url 'index' %}">Home</a>
+        <a href="{% url 'main_list' %}">Main List</a>
+    </header>
+
+    <h1 style="text-align: center;">Результаты поиска</h1>
+    <p style="text-align: center;">Результаты : {{ phone_number }}</p>
+   
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Имя</a></th>
+                <th>Фамилия</a></th>
+                <th>Отчество</th>
+                <th>Улица</th>
+                <th>Дом</th>
+                <th>Строение</th>
+                <th>Квартира</th>
+                <th>Телефон</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% for result in results %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ result.first_name.value }}</td>
+                    <td>{{ result.last_name.value }}</td>
+                    <td>{{ result.patronymic.value }}</td>
+                    <td>{{ result.street.value }}</td>
+                    <td>{{ result.house }}</td>
+                    <td>{{ result.building }}</td>
+                    <td>{{ result.apartment }}</td>
+                    <td>{{ result.phone }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    
+    </table>
+</body>
+</html>
